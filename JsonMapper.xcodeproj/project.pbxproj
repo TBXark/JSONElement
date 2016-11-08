@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6AF859BF1DD1C6DB00BE72D7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF859BE1DD1C6DB00BE72D7 /* main.swift */; };
+		6AF859C61DD1C6FA00BE72D7 /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF859C51DD1C6FA00BE72D7 /* JsonMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		6AF859BB1DD1C6DB00BE72D7 /* JsonMapper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JsonMapper; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF859BE1DD1C6DB00BE72D7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		6AF859C51DD1C6FA00BE72D7 /* JsonMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonMapper.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		6AF859BD1DD1C6DB00BE72D7 /* JsonMapper */ = {
 			isa = PBXGroup;
 			children = (
+				6AF859C51DD1C6FA00BE72D7 /* JsonMapper.swift */,
 				6AF859BE1DD1C6DB00BE72D7 /* main.swift */,
 			);
 			path = JsonMapper;
@@ -120,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AF859C61DD1C6FA00BE72D7 /* JsonMapper.swift in Sources */,
 				6AF859BF1DD1C6DB00BE72D7 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
