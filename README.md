@@ -2,6 +2,22 @@
 JsonMapper is a simple, fast and secure way to access Json
 
 
+
+# Example
+
+```swift
+
+
+let dict = ["data": ["man": ["age": 10, "name": "Peter", "height": 180.0]]]
+let map = JsonMapper(dict)
+print(map["data"]["man"]["age"].intValue ?? 0) // 10
+print(map["data"]["man"]["name"].stringValue ?? "") // Peter
+print(map["data"]["man"]["height"].floatValue ?? 0) // 180.0
+
+
+```
+
+
 # Code 
 
 ```swift
@@ -79,16 +95,3 @@ extension JsonMapper {
 ```
 
 
-# Example
-
-```swift
-
-
-let dict = ["data": ["man": ["age": 10, "name": "Peter", "height": 180.0]]]
-let map = JsonMapper(dict)
-print(map["data"]["man"]["age"].intValue ?? 0) // 10
-print(map["data"]["man"]["name"].stringValue ?? "") // Peter
-print(map["data"]["man"]["height"].floatValue ?? 0) // 180.0
-
-
-```
