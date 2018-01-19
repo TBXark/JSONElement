@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6AF859BF1DD1C6DB00BE72D7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF859BE1DD1C6DB00BE72D7 /* main.swift */; };
-		6AF859C61DD1C6FA00BE72D7 /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF859C51DD1C6FA00BE72D7 /* JsonMapper.swift */; };
+		6A0050601E457F4400EF4CD0 /* JsonMapper iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A00505E1E457F4400EF4CD0 /* JsonMapper iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A00506D1E457F5600EF4CD0 /* JsonMapper watchOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A00506B1E457F5600EF4CD0 /* JsonMapper watchOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A00508F1E457FA300EF4CD0 /* JsonMapper macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A00508D1E457FA300EF4CD0 /* JsonMapper macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A00509C1E457FC000EF4CD0 /* JsonMapper tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A00509A1E457FC000EF4CD0 /* JsonMapper tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A0050AD1E45805900EF4CD0 /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0050AC1E45805900EF4CD0 /* JsonMapper.swift */; };
+		6A0050AE1E45805900EF4CD0 /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0050AC1E45805900EF4CD0 /* JsonMapper.swift */; };
+		6A0050AF1E45805900EF4CD0 /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0050AC1E45805900EF4CD0 /* JsonMapper.swift */; };
+		6A0050B01E45805900EF4CD0 /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0050AC1E45805900EF4CD0 /* JsonMapper.swift */; };
+		6A0050B81E4581E700EF4CD0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0050B71E4581E700EF4CD0 /* main.swift */; };
+		6A4EDEC92011A3850063B2E0 /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0050AC1E45805900EF4CD0 /* JsonMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6AF859B91DD1C6DB00BE72D7 /* CopyFiles */ = {
+		6A0050B31E4581E700EF4CD0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,13 +32,53 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6AF859BB1DD1C6DB00BE72D7 /* JsonMapper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = JsonMapper; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AF859BE1DD1C6DB00BE72D7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		6AF859C51DD1C6FA00BE72D7 /* JsonMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonMapper.swift; sourceTree = SOURCE_ROOT; };
+		6A00505C1E457F4400EF4CD0 /* JsonMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JsonMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A00505E1E457F4400EF4CD0 /* JsonMapper iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JsonMapper iOS.h"; sourceTree = "<group>"; };
+		6A00505F1E457F4400EF4CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A0050691E457F5600EF4CD0 /* JsonMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JsonMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A00506B1E457F5600EF4CD0 /* JsonMapper watchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JsonMapper watchOS.h"; sourceTree = "<group>"; };
+		6A00506C1E457F5600EF4CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A00508B1E457FA300EF4CD0 /* JsonMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JsonMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A00508D1E457FA300EF4CD0 /* JsonMapper macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JsonMapper macOS.h"; sourceTree = "<group>"; };
+		6A00508E1E457FA300EF4CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A0050981E457FBF00EF4CD0 /* JsonMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JsonMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A00509A1E457FC000EF4CD0 /* JsonMapper tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JsonMapper tvOS.h"; sourceTree = "<group>"; };
+		6A00509B1E457FC000EF4CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A0050AC1E45805900EF4CD0 /* JsonMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonMapper.swift; sourceTree = "<group>"; };
+		6A0050B51E4581E700EF4CD0 /* Demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Demo; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A0050B71E4581E700EF4CD0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6AF859B81DD1C6DB00BE72D7 /* Frameworks */ = {
+		6A0050581E457F4400EF4CD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050651E457F5600EF4CD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050871E457FA300EF4CD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050941E457FBF00EF4CD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050B21E4581E700EF4CD0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,10 +88,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A00505D1E457F4400EF4CD0 /* JsonMapper iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6A00505E1E457F4400EF4CD0 /* JsonMapper iOS.h */,
+				6A00505F1E457F4400EF4CD0 /* Info.plist */,
+			);
+			path = "JsonMapper iOS";
+			sourceTree = "<group>";
+		};
+		6A00506A1E457F5600EF4CD0 /* JsonMapper watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				6A00506B1E457F5600EF4CD0 /* JsonMapper watchOS.h */,
+				6A00506C1E457F5600EF4CD0 /* Info.plist */,
+			);
+			path = "JsonMapper watchOS";
+			sourceTree = "<group>";
+		};
+		6A00508C1E457FA300EF4CD0 /* JsonMapper macOS */ = {
+			isa = PBXGroup;
+			children = (
+				6A00508D1E457FA300EF4CD0 /* JsonMapper macOS.h */,
+				6A00508E1E457FA300EF4CD0 /* Info.plist */,
+			);
+			path = "JsonMapper macOS";
+			sourceTree = "<group>";
+		};
+		6A0050991E457FC000EF4CD0 /* JsonMapper tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				6A00509A1E457FC000EF4CD0 /* JsonMapper tvOS.h */,
+				6A00509B1E457FC000EF4CD0 /* Info.plist */,
+			);
+			path = "JsonMapper tvOS";
+			sourceTree = "<group>";
+		};
+		6A0050AB1E45805900EF4CD0 /* JsonMapper */ = {
+			isa = PBXGroup;
+			children = (
+				6A0050AC1E45805900EF4CD0 /* JsonMapper.swift */,
+			);
+			path = JsonMapper;
+			sourceTree = "<group>";
+		};
+		6A0050B61E4581E700EF4CD0 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				6A0050B71E4581E700EF4CD0 /* main.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		6AF859B21DD1C6DB00BE72D7 = {
 			isa = PBXGroup;
 			children = (
-				6AF859BD1DD1C6DB00BE72D7 /* JsonMapper */,
+				6A0050B61E4581E700EF4CD0 /* Demo */,
+				6A0050AB1E45805900EF4CD0 /* JsonMapper */,
+				6A00505D1E457F4400EF4CD0 /* JsonMapper iOS */,
+				6A00506A1E457F5600EF4CD0 /* JsonMapper watchOS */,
+				6A00508C1E457FA300EF4CD0 /* JsonMapper macOS */,
+				6A0050991E457FC000EF4CD0 /* JsonMapper tvOS */,
 				6AF859BC1DD1C6DB00BE72D7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,38 +156,140 @@
 		6AF859BC1DD1C6DB00BE72D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6AF859BB1DD1C6DB00BE72D7 /* JsonMapper */,
+				6A00505C1E457F4400EF4CD0 /* JsonMapper.framework */,
+				6A0050691E457F5600EF4CD0 /* JsonMapper.framework */,
+				6A00508B1E457FA300EF4CD0 /* JsonMapper.framework */,
+				6A0050981E457FBF00EF4CD0 /* JsonMapper.framework */,
+				6A0050B51E4581E700EF4CD0 /* Demo */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6AF859BD1DD1C6DB00BE72D7 /* JsonMapper */ = {
-			isa = PBXGroup;
-			children = (
-				6AF859C51DD1C6FA00BE72D7 /* JsonMapper.swift */,
-				6AF859BE1DD1C6DB00BE72D7 /* main.swift */,
-			);
-			path = JsonMapper;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		6A0050591E457F4400EF4CD0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0050601E457F4400EF4CD0 /* JsonMapper iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050661E457F5600EF4CD0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A00506D1E457F5600EF4CD0 /* JsonMapper watchOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050881E457FA300EF4CD0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A00508F1E457FA300EF4CD0 /* JsonMapper macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050951E457FBF00EF4CD0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A00509C1E457FC000EF4CD0 /* JsonMapper tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		6AF859BA1DD1C6DB00BE72D7 /* JsonMapper */ = {
+		6A00505B1E457F4400EF4CD0 /* JsonMapper iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AF859C21DD1C6DB00BE72D7 /* Build configuration list for PBXNativeTarget "JsonMapper" */;
+			buildConfigurationList = 6A0050611E457F4400EF4CD0 /* Build configuration list for PBXNativeTarget "JsonMapper iOS" */;
 			buildPhases = (
-				6AF859B71DD1C6DB00BE72D7 /* Sources */,
-				6AF859B81DD1C6DB00BE72D7 /* Frameworks */,
-				6AF859B91DD1C6DB00BE72D7 /* CopyFiles */,
+				6A0050571E457F4400EF4CD0 /* Sources */,
+				6A0050581E457F4400EF4CD0 /* Frameworks */,
+				6A0050591E457F4400EF4CD0 /* Headers */,
+				6A00505A1E457F4400EF4CD0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = JsonMapper;
-			productName = JsonMapper;
-			productReference = 6AF859BB1DD1C6DB00BE72D7 /* JsonMapper */;
+			name = "JsonMapper iOS";
+			productName = "JsonMapper iOS";
+			productReference = 6A00505C1E457F4400EF4CD0 /* JsonMapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A0050681E457F5600EF4CD0 /* JsonMapper watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A00506E1E457F5600EF4CD0 /* Build configuration list for PBXNativeTarget "JsonMapper watchOS" */;
+			buildPhases = (
+				6A0050641E457F5600EF4CD0 /* Sources */,
+				6A0050651E457F5600EF4CD0 /* Frameworks */,
+				6A0050661E457F5600EF4CD0 /* Headers */,
+				6A0050671E457F5600EF4CD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JsonMapper watchOS";
+			productName = "JsonMapper watchOS";
+			productReference = 6A0050691E457F5600EF4CD0 /* JsonMapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A00508A1E457FA300EF4CD0 /* JsonMapper macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0050901E457FA300EF4CD0 /* Build configuration list for PBXNativeTarget "JsonMapper macOS" */;
+			buildPhases = (
+				6A0050861E457FA300EF4CD0 /* Sources */,
+				6A0050871E457FA300EF4CD0 /* Frameworks */,
+				6A0050881E457FA300EF4CD0 /* Headers */,
+				6A0050891E457FA300EF4CD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JsonMapper macOS";
+			productName = "JsonMapper macOS";
+			productReference = 6A00508B1E457FA300EF4CD0 /* JsonMapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A0050971E457FBF00EF4CD0 /* JsonMapper tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A00509D1E457FC000EF4CD0 /* Build configuration list for PBXNativeTarget "JsonMapper tvOS" */;
+			buildPhases = (
+				6A0050931E457FBF00EF4CD0 /* Sources */,
+				6A0050941E457FBF00EF4CD0 /* Frameworks */,
+				6A0050951E457FBF00EF4CD0 /* Headers */,
+				6A0050961E457FBF00EF4CD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JsonMapper tvOS";
+			productName = "JsonMapper tvOS";
+			productReference = 6A0050981E457FBF00EF4CD0 /* JsonMapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A0050B41E4581E700EF4CD0 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A0050B91E4581E700EF4CD0 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				6A0050B11E4581E700EF4CD0 /* Sources */,
+				6A0050B21E4581E700EF4CD0 /* Frameworks */,
+				6A0050B31E4581E700EF4CD0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 6A0050B51E4581E700EF4CD0 /* Demo */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -91,12 +298,28 @@
 		6AF859B31DD1C6DB00BE72D7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Tbxark;
 				TargetAttributes = {
-					6AF859BA1DD1C6DB00BE72D7 = {
-						CreatedOnToolsVersion = 8.1;
+					6A00505B1E457F4400EF4CD0 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					6A0050681E457F5600EF4CD0 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					6A00508A1E457FA300EF4CD0 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					6A0050971E457FBF00EF4CD0 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					6A0050B41E4581E700EF4CD0 = {
+						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -113,24 +336,322 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AF859BA1DD1C6DB00BE72D7 /* JsonMapper */,
+				6A0050B41E4581E700EF4CD0 /* Demo */,
+				6A00505B1E457F4400EF4CD0 /* JsonMapper iOS */,
+				6A0050681E457F5600EF4CD0 /* JsonMapper watchOS */,
+				6A00508A1E457FA300EF4CD0 /* JsonMapper macOS */,
+				6A0050971E457FBF00EF4CD0 /* JsonMapper tvOS */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		6A00505A1E457F4400EF4CD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050671E457F5600EF4CD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050891E457FA300EF4CD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050961E457FBF00EF4CD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		6AF859B71DD1C6DB00BE72D7 /* Sources */ = {
+		6A0050571E457F4400EF4CD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AF859C61DD1C6FA00BE72D7 /* JsonMapper.swift in Sources */,
-				6AF859BF1DD1C6DB00BE72D7 /* main.swift in Sources */,
+				6A0050AD1E45805900EF4CD0 /* JsonMapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050641E457F5600EF4CD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0050AE1E45805900EF4CD0 /* JsonMapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050861E457FA300EF4CD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0050AF1E45805900EF4CD0 /* JsonMapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050931E457FBF00EF4CD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A0050B01E45805900EF4CD0 /* JsonMapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A0050B11E4581E700EF4CD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A4EDEC92011A3850063B2E0 /* JsonMapper.swift in Sources */,
+				6A0050B81E4581E700EF4CD0 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		6A0050621E457F4400EF4CD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "JsonMapper iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbxark.JsonMapper;
+				PRODUCT_NAME = JsonMapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6A0050631E457F4400EF4CD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "JsonMapper iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbxark.JsonMapper;
+				PRODUCT_NAME = JsonMapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6A00506F1E457F5600EF4CD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "JsonMapper watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbxark.JsonMapper;
+				PRODUCT_NAME = JsonMapper;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		6A0050701E457F5600EF4CD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "JsonMapper watchOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbxark.JsonMapper;
+				PRODUCT_NAME = JsonMapper;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		6A0050911E457FA300EF4CD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "JsonMapper macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbxark.JsonMapper;
+				PRODUCT_NAME = JsonMapper;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6A0050921E457FA300EF4CD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "JsonMapper macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbxark.JsonMapper;
+				PRODUCT_NAME = JsonMapper;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6A00509E1E457FC000EF4CD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "JsonMapper tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbxark.JsonMapper;
+				PRODUCT_NAME = JsonMapper;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6A00509F1E457FC000EF4CD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "JsonMapper tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tbxark.JsonMapper;
+				PRODUCT_NAME = JsonMapper;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6A0050BA1E4581E700EF4CD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6A0050BB1E4581E700EF4CD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		6AF859C01DD1C6DB00BE72D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -149,6 +670,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -197,6 +719,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -216,28 +739,58 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		6AF859C31DD1C6DB00BE72D7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		6AF859C41DD1C6DB00BE72D7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6A0050611E457F4400EF4CD0 /* Build configuration list for PBXNativeTarget "JsonMapper iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0050621E457F4400EF4CD0 /* Debug */,
+				6A0050631E457F4400EF4CD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A00506E1E457F5600EF4CD0 /* Build configuration list for PBXNativeTarget "JsonMapper watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A00506F1E457F5600EF4CD0 /* Debug */,
+				6A0050701E457F5600EF4CD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0050901E457FA300EF4CD0 /* Build configuration list for PBXNativeTarget "JsonMapper macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0050911E457FA300EF4CD0 /* Debug */,
+				6A0050921E457FA300EF4CD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A00509D1E457FC000EF4CD0 /* Build configuration list for PBXNativeTarget "JsonMapper tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A00509E1E457FC000EF4CD0 /* Debug */,
+				6A00509F1E457FC000EF4CD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A0050B91E4581E700EF4CD0 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A0050BA1E4581E700EF4CD0 /* Debug */,
+				6A0050BB1E4581E700EF4CD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6AF859B61DD1C6DB00BE72D7 /* Build configuration list for PBXProject "JsonMapper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -246,14 +799,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		6AF859C21DD1C6DB00BE72D7 /* Build configuration list for PBXNativeTarget "JsonMapper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6AF859C31DD1C6DB00BE72D7 /* Debug */,
-				6AF859C41DD1C6DB00BE72D7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
