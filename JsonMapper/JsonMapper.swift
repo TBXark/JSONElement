@@ -90,14 +90,14 @@ extension JsonMapper {
 
 
 public struct JSONCodableHelper {
-    static let decoder: JSONDecoder = {
+    public static let decoder: JSONDecoder = {
         let json = JSONDecoder()
         json.dateDecodingStrategy = .millisecondsSince1970
         return json
     }()
     
     
-    static let encoder: JSONEncoder = {
+    public static let encoder: JSONEncoder = {
         let json = JSONEncoder()
         json.dateEncodingStrategy = .millisecondsSince1970
         return json
