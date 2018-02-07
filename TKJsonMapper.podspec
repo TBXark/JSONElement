@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 	s.name     = 'TKJsonMapper'
-	s.version  = '0.1.1'
+	s.version  = '0.1.2'
 
 	s.license  = { :type => 'MIT', :file => 'LICENSE' }
 	s.summary  = 'JsonMapper is a simple, fast and secure way to access Json Edit'

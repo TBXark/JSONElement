@@ -87,41 +87,36 @@ extension JsonMapper {
 
 }
 
-
-
-public struct JSONCodableHelper {
-    public static let decoder: JSONDecoder = {
-        let json = JSONDecoder()
-        json.dateDecodingStrategy = .millisecondsSince1970
-        return json
-    }()
-    
-    
-    public static let encoder: JSONEncoder = {
-        let json = JSONEncoder()
-        json.dateEncodingStrategy = .millisecondsSince1970
-        return json
-    }()
-    
-    
-    public static func decodeJSONStringToModel<T: Codable>(json: String) -> T? {
-        guard let data = json.data(using: String.Encoding.utf8),
-            let model = try? JSONDecoder().decode(T.self, from: data) else { return nil }
-        
+extension JSONDecoder {
+    func decodeJSONStringToModel<T: Decodable>(json: String) throws -> T {
+        guard let data = json.data(using: String.Encoding.utf8) else {
+            throw NSError(domain: "com.tbxark.JSONDecoder",
+                          code: -1,
+                          userInfo: [NSLocalizedFailureReasonErrorKey: "Can not convert string to data"])
+        }
+        let model = try decode(T.self, from: data)
         return model
     }
+}
+
+extension JSONEncoder {
     
-    public static func encodeModelToJSONObj<T: Codable>(value: T) -> Any? {
-        guard let data = try? encoder.encode(value),
-            let json = try? JSONSerialization.jsonObject(with: data, options: [])  else { return nil}
-        return json
+    public func encodeModelToJSONObj<T: Encodable>(value: T) throws -> Any {
+         let data = try self.encode(value)
+         let json = try JSONSerialization.jsonObject(with: data, options: [])
+         return json
     }
     
-    public static func encodeModelToJSONString<T: Codable>(value: T) -> String? {
-        guard let data = try? encoder.encode(value),
-            let json = String(bytes: data, encoding: String.Encoding.utf8) else { return nil}
+    public func encodeModelToJSONString<T: Codable>(value: T) throws -> String {
+        let data = try encode(value)
+        guard let json = String(bytes: data, encoding: String.Encoding.utf8) else {
+            throw NSError(domain: "com.tbxark.JSONEncoder",
+                          code: -1,
+                          userInfo: [NSLocalizedFailureReasonErrorKey: "Can not convert data to string"])
+        }
         return json
     }
+
 }
 
 
