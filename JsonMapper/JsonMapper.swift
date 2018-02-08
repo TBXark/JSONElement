@@ -88,7 +88,7 @@ extension JsonMapper {
 }
 
 extension JSONDecoder {
-    func decodeJSONStringToModel<T: Decodable>(json: String) throws -> T {
+    public func decodeJSONStringToModel<T: Decodable>(json: String) throws -> T {
         guard let data = json.data(using: String.Encoding.utf8) else {
             throw NSError(domain: "com.tbxark.JSONDecoder",
                           code: -1,
