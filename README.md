@@ -47,7 +47,8 @@ if let manDict: Any = map["data"]["man"].value() {
 }
 // Output
 // 10
-// ["iPhone", "Blackberry", "Xiaomi"]
+// 180.0
+// Peter
 // [Optional(123), Optional("123"), Optional([Optional(123)]), Optional(["123": 123]), Optional(true)]
 // 123
 
