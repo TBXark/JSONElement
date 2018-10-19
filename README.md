@@ -1,5 +1,7 @@
 # JsonMapper
+
 `JsonMapper` is a simple, fast and secure way to access Json.
+
 Because `Any` can't be used in `Codable`, it can be replaced with `JSONElement` for properties of type `Any`.
 
 # Example
@@ -45,7 +47,8 @@ if let manDict: Any = map["data"]["man"].value() {
 }
 // Output
 // 10
-// ["iPhone", "Blackberry", "Xiaomi"]
+// 180.0
+// Peter
 // [Optional(123), Optional("123"), Optional([Optional(123)]), Optional(["123": 123]), Optional(true)]
 // 123
 
