@@ -143,6 +143,11 @@ public enum JSONElement: Codable {
             try container.encode(value)
         }
     }
+    
+    public func decode<T: Decodable>(type: T.Type = T.self) throws -> T {
+        let data = try JSONEncoder().encode(self)
+        return try JSONDecoder().decode(T.self, from: data)
+    }
 }
 
 public struct JSONMapper {
