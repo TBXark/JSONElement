@@ -1,5 +1,7 @@
 # JsonMapper
+
 `JsonMapper` is a simple, fast and secure way to access Json.
+
 Because `Any` can't be used in `Codable`, it can be replaced with `JSONElement` for properties of type `Any`.
 
 # Example
