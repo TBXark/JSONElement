@@ -8,6 +8,7 @@
 
 import Foundation
 
+@dynamicMemberLookup
 public enum JSONElement: Codable {
     
     case null
@@ -148,8 +149,17 @@ public enum JSONElement: Codable {
         let data = try JSONEncoder().encode(self)
         return try JSONDecoder().decode(T.self, from: data)
     }
+    
+    public subscript(dynamicMember member: String) -> JSONElement {
+        if case .object(let value) = self {
+            return value[member] ?? .null
+        }
+        return .null
+    }
 }
 
+
+@dynamicMemberLookup
 public struct JSONMapper {
     
     private var originData: Any?
@@ -175,11 +185,19 @@ public struct JSONMapper {
         self.originData = obj
     }
     
-    public init(data: Any?) {
-        self.originData = data
+    public init(data: Data) {
+        guard let obj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) else {
+                self.originData = nil
+                return
+        }
+        self.originData = obj
     }
     
-    public func value<T>() -> T? {
+    public init(raw: Any?) {
+        self.originData = raw
+    }
+    
+    public func value<T>(type: T.Type = T.self) -> T? {
         return originData as? T
     }
     
@@ -194,15 +212,21 @@ public struct JSONMapper {
 
     
     public subscript(key: String) -> JSONMapper {
-        return JSONMapper(data: (originData as? [String: Any])?[key])
+        return JSONMapper(raw: (originData as? [String: Any])?[key])
     }
     
     public subscript(index: Int) -> JSONMapper {
         guard let array = originData as? [Any],
             index < array.count else {
-                return JSONMapper(data: nil)
+                return JSONMapper(raw: nil)
         }
-        return JSONMapper(data: array[index])
+        return JSONMapper(raw: array[index])
+    }
+    
+    public subscript(dynamicMember member: String) -> JSONMapper {
+        guard let v = self.originData,
+            let dict = v as? [String: Any] else { return JSONMapper(raw: nil) }
+        return JSONMapper(raw: dict[member])
     }
     
 }

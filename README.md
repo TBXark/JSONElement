@@ -4,6 +4,8 @@
 
 Because `Any` can't be used in `Codable`, it can be replaced with `JSONElement` for properties of type `Any`.
 
+
+
 # Example
 
 ```swift
@@ -20,21 +22,27 @@ let dict = ["data": ["man": ["age": 10, "name": "Peter", "height": 180.0, "extra
 
 // MARK: - JSONMapper
 print("-- JSONMapper --")
-let map = JSONMapper(data: dict)
+let json = JSONMapper(raw: dict)
 // 直接获取
-if let value = map["data"]["man"]["age"].intValue {
+if let value = json["data"]["man"]["age"].intValue {
     print(value)
 }
 // 使用Key获取
-if let value: Double = map["data"]["man"]["height"].value() {
-    print(value)
-}
-// 使用Keypath获取
-if let value = map.value(keyPath: "data.man.name", type: String.self) {
+if let value = json["data"]["man"]["height"].value(type: Double.self) {
     print(value)
 }
 
-if let manDict: Any = map["data"]["man"].value() {
+// 使用 dynamicMemberLookup 获取
+if let value = json.data.man.height.value(type: Double.self) {
+    print(value)
+}
+
+// 使用Keypath获取
+if let value = json.value(keyPath: "data.man.name", type: String.self) {
+    print(value)
+}
+
+if let manDict: Any = json["data"]["man"].value() {
     let data = try JSONSerialization.data(withJSONObject: manDict, options: [])
     let man = try JSONDecoder().decode(Human.self, from: data)
     if let value = man.extra.arrayValue {
@@ -45,12 +53,18 @@ if let manDict: Any = map["data"]["man"].value() {
 
     }
 }
-// Output
-// 10
-// 180.0
-// Peter
-// [Optional(123), Optional("123"), Optional([Optional(123)]), Optional(["123": 123]), Optional(true)]
-// 123
+
+//
+// Output:
+//
+//-- JSONMapper --
+//10
+//180.0
+//180.0
+//Peter
+//[Optional(123), Optional("123"), Optional([Optional(123)]), Optional(["123": 123]), Optional(true)]
+//123
+//Program ended with exit code: 0
 
 
 
