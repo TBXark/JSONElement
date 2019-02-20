@@ -148,8 +148,8 @@ public enum JSONElement: Codable {
     public func decode<T: Decodable>(jsonEncoder: JSONEncoder = JSONEncoder(),
                                      jsonDecoder: JSONDecoder = JSONDecoder(),
                                      type: T.Type = T.self) throws -> T {
-        let data = try JSONEncoder().encode(self)
-        return try JSONDecoder().decode(T.self, from: data)
+        let data = try jsonEncoder.encode(self)
+        return try jsonDecoder.decode(T.self, from: data)
     }
     
     public subscript(dynamicMember member: String) -> JSONElement {
