@@ -97,10 +97,10 @@ public enum JSONElement: Codable {
         }
     }
     
-    public init(jsonValue: Any?) throws {
+    public init(jsonValue: Any?, jsonDecoder: JSONDecoder = JSONDecoder()) throws {
         if let value = jsonValue {
             let jsonData = try JSONSerialization.data(withJSONObject: [value], options: [])
-            self = (try JSONDecoder().decode(JSONElement.self, from: jsonData)).arrayValue?.first ?? JSONElement.null
+            self = (try jsonDecoder.decode(JSONElement.self, from: jsonData)).arrayValue?.first ?? JSONElement.null
         } else {
             self = .null
         }
@@ -145,7 +145,9 @@ public enum JSONElement: Codable {
         }
     }
     
-    public func decode<T: Decodable>(type: T.Type = T.self) throws -> T {
+    public func decode<T: Decodable>(jsonEncoder: JSONEncoder = JSONEncoder(),
+                                     jsonDecoder: JSONDecoder = JSONDecoder(),
+                                     type: T.Type = T.self) throws -> T {
         let data = try JSONEncoder().encode(self)
         return try JSONDecoder().decode(T.self, from: data)
     }
