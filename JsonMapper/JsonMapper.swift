@@ -97,10 +97,28 @@ public enum JSONElement: Codable {
         }
     }
     
-    public init(jsonValue: Any?, jsonDecoder: JSONDecoder = JSONDecoder()) throws {
+    public init(jsonValue: Any?, jsonDecoder: JSONDecoder = JSONDecoder(), jsonEncoder: JSONEncoder = JSONEncoder()) throws {
         if let value = jsonValue {
-            let jsonData = try JSONSerialization.data(withJSONObject: [value], options: [])
-            self = (try jsonDecoder.decode(JSONElement.self, from: jsonData)).arrayValue?.first ?? JSONElement.null
+            if let data = value as? Data {
+                let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
+                self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
+            } else if let json = value as? String {
+                let data = json.data(using: String.Encoding.utf8) ?? Data()
+                let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
+                self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
+            } else if let model = value as? Encodable {
+                let jsonData = try model.data(using: jsonEncoder)
+                self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
+            } else if let dict = value as? [String: Any] {
+                let jsonData = try JSONSerialization.data(withJSONObject: dict, options: [])
+                self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
+            } else if let array = value as? [Any] {
+                let jsonData = try JSONSerialization.data(withJSONObject: array, options: [])
+                self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
+            } else {
+                let jsonData = try JSONSerialization.data(withJSONObject: [value], options: [])
+                self = (try jsonDecoder.decode(JSONElement.self, from: jsonData)).arrayValue?.first ?? JSONElement.null
+            }
         } else {
             self = .null
         }
@@ -344,3 +362,13 @@ extension JSONEncoder {
         self.keyEncodingStrategy = key
     }
 }
+
+extension Encodable {
+    public func data(using encoder: JSONEncoder = JSONEncoder()) throws -> Data {
+        return try encoder.encode(self)
+    }
+    public func string(using encoder: JSONEncoder = JSONEncoder()) throws -> String {
+        return try String(data: encoder.encode(self), encoding: .utf8)!
+    }
+}
+
