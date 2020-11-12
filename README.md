@@ -6,6 +6,42 @@ Because `Any` can't be used in `Codable`, it can be replaced with `JSONElement` 
 
 
 
+## Installation
+
+### Swift Package Manager
+
+Add the dependency in your `Package.swift` file:
+
+```swift
+let package = Package(
+    name: "myproject",
+    dependencies: [
+        .package(url: "https://github.com/TBXark/JsonMapper.git", .upToNextMajor(from: "1.2.0"))
+        ],
+    targets: [
+        .target(
+            name: "myproject",
+            dependencies: ["JsonMapper"]),
+        ]
+)
+```
+
+### Carthage
+
+Add the dependency in your `Cartfile` file:
+
+```bash
+github "TBXark/JsonMapper" ~> 1.2.0.
+```
+
+### CocoaPods
+
+Add the dependency in your `Podfile` file:
+
+```ruby
+pod 'JsonMapper', :git=>'https://github.com/TBXark/JsonMapper.git', '~> 7.18.0
+```
+
 # Example
 
 ```swift
@@ -64,8 +100,5 @@ if let manDict: Any = json["data"]["man"].value() {
 //Peter
 //[Optional(123), Optional("123"), Optional([Optional(123)]), Optional(["123": 123]), Optional(true)]
 //123
-//Program ended with exit code: 0
-
-
 
 ```
