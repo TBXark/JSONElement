@@ -11,7 +11,7 @@ import Foundation
 // MARK: - JSONElement
 @dynamicMemberLookup
 public enum JSONElement: Codable, Equatable, Hashable {
-
+    
     // MARK: getter
     case null
     public var isNull: Bool {
@@ -21,7 +21,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return false
         }
     }
-
+    
     case int(Int)
     public var intValue: Int? {
         if case let .int(value) = self {
@@ -30,7 +30,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return nil
         }
     }
-
+    
     case decimal(Decimal)
     public var decimalValue: Decimal? {
         if case .decimal(let value) = self {
@@ -41,7 +41,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return nil
         }
     }
-
+    
     case bool(Bool)
     public var boolValue: Bool? {
         if case .bool(let value) = self {
@@ -50,7 +50,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return nil
         }
     }
-
+    
     case string(String)
     public var stringValue: String? {
         if case .string(let value) = self {
@@ -59,7 +59,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return nil
         }
     }
-
+    
     indirect case object([String: JSONElement])
     public var objectValue: [String: JSONElement]? {
         if case .object(let value) = self {
@@ -68,7 +68,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return nil
         }
     }
-
+    
     indirect case array([JSONElement])
     public var arrayValue: [JSONElement]? {
         if case .array(let value) = self {
@@ -77,7 +77,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return nil
         }
     }
-
+    
     public var rawValue: Any? {
         switch self {
         case .null:
@@ -100,7 +100,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return value.map({ $0.rawValue })
         }
     }
-
+    
     // MARK: init
     public init(_ value: Any?) {
         if let v = value {
@@ -131,41 +131,41 @@ public enum JSONElement: Codable, Equatable, Hashable {
                     self = .null
                 }
             }
-
+            
         } else {
             self = .null
         }
     }
-
+    
     public init(model: Encodable, jsonDecoder: JSONDecoder = JSONDecoder(), jsonEncoder: JSONEncoder = JSONEncoder()) throws {
         let jsonData = try model.encodeToJsonData(using: jsonEncoder)
         self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
     }
-
+    
     public init(rawJSON: [Any], jsonDecoder: JSONDecoder = JSONDecoder()) throws {
         let jsonData = try JSONSerialization.data(withJSONObject: rawJSON, options: [])
         self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
     }
-
+    
     public init(rawJSON: [String: Any], jsonDecoder: JSONDecoder = JSONDecoder()) throws {
         let jsonData = try JSONSerialization.data(withJSONObject: rawJSON, options: [])
         self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
     }
-
+    
     public init(rawJSON: String, jsonDecoder: JSONDecoder = JSONDecoder()) throws {
         let data = rawJSON.data(using: String.Encoding.utf8) ?? Data()
         self = try jsonDecoder.decode(JSONElement.self, from: data)
     }
-
+    
     public init(rawJSON: Data, jsonDecoder: JSONDecoder = JSONDecoder()) throws {
         self = try jsonDecoder.decode(JSONElement.self, from: rawJSON)
     }
-
+    
     public init(unknownValue: Any, jsonDecoder: JSONDecoder = JSONDecoder()) throws {
         let jsonData = try JSONSerialization.data(withJSONObject: [unknownValue], options: [])
         self = (try jsonDecoder.decode(JSONElement.self, from: jsonData)).arrayValue?.first ?? JSONElement.null
     }
-
+    
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let value = try? container.decode(Int.self) {
@@ -184,7 +184,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             self = .null
         }
     }
-
+    
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
@@ -204,14 +204,14 @@ public enum JSONElement: Codable, Equatable, Hashable {
             try container.encode(value)
         }
     }
-
+    
     // MARK: transform
     public func `as`<T: Decodable>(type: T.Type = T.self, jsonEncoder: JSONEncoder = JSONEncoder(), jsonDecoder: JSONDecoder = JSONDecoder()) throws -> T {
         let data = try jsonEncoder.encode(self)
         return try jsonDecoder.decode(T.self, from: data)
     }
-
-
+    
+    
     // MARK: subscript
     public subscript(key: String) -> JSONElement {
         switch self {
@@ -273,132 +273,132 @@ public enum JSONElement: Codable, Equatable, Hashable {
 // MARK: - JSONMapper
 @dynamicMemberLookup
 public struct JSONMapper {
-
+    
     private var originData: Any?
-
+    
     // MARK: init
-    public init(json: String) {
-        guard let data = json.data(using: String.Encoding.utf8),
+    public init(rawJSON: String) {
+        guard let data = rawJSON.data(using: String.Encoding.utf8),
               let obj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) else {
             self.originData = nil
             return
         }
         self.originData = obj
     }
-
-    public init(data: Data) {
-        guard let obj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) else {
+    
+    public init(rawJSON: Data) {
+        guard let obj = try? JSONSerialization.jsonObject(with: rawJSON, options: .allowFragments) else {
             self.originData = nil
             return
         }
         self.originData = obj
     }
-
-    // MARK: transform
-    public init(raw: Any?) {
+    
+    public init(_ raw: Any?) {
         self.originData = raw
     }
-
+    
+    // MARK: transform
     func `as`<T>(_ type: T.Type = T.self) -> T? {
         return originData.flatMap({ $0 as? T })
     }
-
+    
     // MARK: subscript
     public subscript(key: String) -> JSONMapper {
-        return JSONMapper(raw: (originData as? [String: Any])?[key])
+        return JSONMapper((originData as? [String: Any])?[key])
     }
-
+    
     public subscript(index: Int) -> JSONMapper {
         guard let array = originData as? [Any],
               index < array.count else {
-            return JSONMapper(raw: nil)
+            return JSONMapper(nil)
         }
-        return JSONMapper(raw: array[index])
+        return JSONMapper(array[index])
     }
     
     public subscript(keyPath path: String) -> JSONMapper {
         var current = self
         for key in path.split(separator: ".") {
             guard let v = current.originData else {
-                return JSONMapper(raw: nil)
+                return JSONMapper(nil)
             }
             if let dict = v as? [String: Any] {
-                current = JSONMapper(raw: dict[String(key)])
+                current = JSONMapper(dict[String(key)])
             } else if let array = v as? [Any], let index = Int(key), array.count > index {
-                current = JSONMapper(raw: array[index])
+                current = JSONMapper(array[index])
             } else {
-                return JSONMapper(raw: nil)
+                return JSONMapper(nil)
             }
         }
         return current
     }
-
+    
     public subscript(dynamicMember member: String) -> JSONMapper {
         guard let v = self.originData,
               let dict = v as? [String: Any] else {
-            return JSONMapper(raw: nil)
+            return JSONMapper(nil)
         }
-        return JSONMapper(raw: dict[member])
+        return JSONMapper(dict[member])
     }
-   
+    
     // MARK: getter
     public var boolValue: Bool? {
         return originData as? Bool ?? numValue?.boolValue
     }
-
+    
     public var stringValue: String? {
         return originData as? String
     }
-
+    
     public var numValue: NSNumber? {
         return originData as? NSNumber
     }
-
+    
     public var int8Value: Int8? {
         return numValue?.int8Value
     }
-
+    
     public var uint8Value: UInt8? {
         return numValue?.uint8Value
     }
-
+    
     public var int16Value: Int16? {
         return numValue?.int16Value
     }
-
+    
     public var uint16Value: UInt16? {
         return numValue?.uint16Value
     }
-
+    
     public var int32Value: Int32? {
         return numValue?.int32Value
     }
-
+    
     public var uint32Value: UInt32? {
         return numValue?.uint32Value
     }
-
+    
     public var int64Value: Int64? {
         return numValue?.int64Value
     }
-
+    
     public var uint64Value: UInt64? {
         return numValue?.uint64Value
     }
-
+    
     public var floatValue: Float? {
         return numValue?.floatValue
     }
-
+    
     var doubleValue: Double? {
         return numValue?.doubleValue
     }
-
+    
     @available(OSX 10.5, *)
     public var intValue: Int? {
         return numValue?.intValue
     }
-
+    
     @available(OSX 10.5, *)
     public var uintValue: UInt? {
         return numValue?.uintValue
@@ -410,8 +410,8 @@ extension JSONDecoder {
     public func decodeJSONStringToModel<T: Decodable>(json: String) throws -> T {
         guard let data = json.data(using: String.Encoding.utf8) else {
             throw NSError(domain: "org.swift.JSONEncoder",
-                code: -1,
-                userInfo: [NSLocalizedDescriptionKey: "Can not convert string to data"])
+                          code: -1,
+                          userInfo: [NSLocalizedDescriptionKey: "Can not convert string to data"])
         }
         let model = try decode(T.self, from: data)
         return model
@@ -419,23 +419,23 @@ extension JSONDecoder {
 }
 
 extension JSONEncoder {
-
+    
     public func encodeModelToJSONObj<T: Encodable>(value: T) throws -> Any {
         let data = try self.encode(value)
         let json = try JSONSerialization.jsonObject(with: data, options: [])
         return json
     }
-
+    
     public func encodeModelToJSONString<T: Codable>(value: T) throws -> String {
         let data = try encode(value)
         guard let json = String(bytes: data, encoding: String.Encoding.utf8) else {
             throw NSError(domain: "org.swift.JSONEncoder",
-                code: -1,
-                userInfo: [NSLocalizedDescriptionKey: "Can not convert data to string"])
+                          code: -1,
+                          userInfo: [NSLocalizedDescriptionKey: "Can not convert data to string"])
         }
         return json
     }
-
+    
 }
 
 extension JSONDecoder {
@@ -468,7 +468,7 @@ extension Encodable {
     public func encodeToJsonData(using encoder: JSONEncoder = JSONEncoder()) throws -> Data {
         return try encoder.encode(self)
     }
-
+    
     public func encodeToJsonString(using encoder: JSONEncoder = JSONEncoder()) throws -> String {
         return try String(data: encoder.encode(self), encoding: .utf8)!
     }

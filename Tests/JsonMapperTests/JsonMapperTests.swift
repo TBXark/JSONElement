@@ -14,7 +14,7 @@ final class JsonMapperTests: XCTestCase {
 
     func testJSONMapper() throws {
 
-        let json = JSONMapper(raw: dict)
+        let json = JSONMapper(dict)
         // 直接获取
         XCTAssertEqual(json["data"]["man"]["age"].intValue, 10)
 
