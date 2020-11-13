@@ -224,7 +224,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
     public subscript(keyPath path: String) -> JSONElement {
         var current = self
         for key in path.split(separator: ".") {
-            switch self {
+            switch current {
             case .null:
                 return .null
             case .object(let value):
@@ -311,7 +311,7 @@ public struct JSONMapper {
     
     public subscript(keyPath path: String) -> JSONMapper {
         var current = self
-        for key in path.split(separator: ",") {
+        for key in path.split(separator: ".") {
             guard let v = current.originData else {
                 return JSONMapper(raw: nil)
             }
