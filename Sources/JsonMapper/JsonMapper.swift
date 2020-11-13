@@ -28,9 +28,9 @@ public enum JSONElement: Codable, Equatable, Hashable {
         }
     }
 
-    case float(Float)
-    public var floatValue: Float? {
-        if case .float(let value) = self {
+    case decimal(Decimal)
+    public var decimalValue: Decimal? {
+        if case .decimal(let value) = self {
             return value
         } else {
             return nil
@@ -79,7 +79,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             return nil
         case .int(let value):
             return value
-        case .float(let value):
+        case .decimal(let value):
             return value
         case .bool(let value):
             return value
@@ -101,9 +101,9 @@ public enum JSONElement: Codable, Equatable, Hashable {
             if let _v = v as? Int {
                 self = .int(_v)
             } else if let _v = v as? Float {
-                self = .float(_v)
+                self = .decimal(Decimal(Double(_v)))
             } else if let _v = v as? Double {
-                self = .float(Float(_v))
+                self = .decimal(Decimal(_v))
             } else if let _v = v as? Bool {
                 self = .bool(_v)
             } else if let _v = v as? String {
@@ -164,8 +164,8 @@ public enum JSONElement: Codable, Equatable, Hashable {
         let container = try decoder.singleValueContainer()
         if let value = try? container.decode(Int.self) {
             self = .int(value)
-        } else if let value = try? container.decode(Float.self) {
-            self = .float(value)
+        } else if let value = try? container.decode(Decimal.self) {
+            self = .decimal(value)
         } else if let value = try? container.decode(Bool.self) {
             self = .bool(value)
         } else if let value = try? container.decode(String.self) {
@@ -186,7 +186,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
             try container.encodeNil()
         case .int(let value):
             try container.encode(value)
-        case .float(let value):
+        case .decimal(let value):
             try container.encode(value)
         case .bool(let value):
             try container.encode(value)
