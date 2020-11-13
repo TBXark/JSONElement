@@ -152,8 +152,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
     }
 
     public init(rawJSON: Data, jsonDecoder: JSONDecoder = JSONDecoder()) throws {
-        let jsonData = try JSONSerialization.data(withJSONObject: rawJSON, options: [])
-        self = try jsonDecoder.decode(JSONElement.self, from: jsonData)
+        self = try jsonDecoder.decode(JSONElement.self, from: rawJSON)
     }
 
     public init(unknownValue: Any, jsonDecoder: JSONDecoder = JSONDecoder()) throws {
@@ -224,7 +223,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
     
     public subscript(keyPath path: String) -> JSONElement {
         var current = self
-        for key in path.split(separator: ",") {
+        for key in path.split(separator: ".") {
             switch self {
             case .null:
                 return .null
