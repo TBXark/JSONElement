@@ -206,7 +206,7 @@ public enum JSONElement: Codable, Equatable, Hashable {
     }
     
     // MARK: transform
-    public func `as`<T: Decodable>(type: T.Type = T.self, jsonEncoder: JSONEncoder = JSONEncoder(), jsonDecoder: JSONDecoder = JSONDecoder()) throws -> T {
+    public func `as`<T: Decodable>(_ type: T.Type = T.self, jsonEncoder: JSONEncoder = JSONEncoder(), jsonDecoder: JSONDecoder = JSONDecoder()) throws -> T {
         let data = try jsonEncoder.encode(self)
         return try jsonDecoder.decode(T.self, from: data)
     }
@@ -299,8 +299,17 @@ public struct JSONMapper {
     }
     
     // MARK: transform
-    func `as`<T>(_ type: T.Type = T.self) -> T? {
-        return originData.flatMap({ $0 as? T })
+    public func `as`<T: Decodable>(_ type: T.Type = T.self, jsonEncoder: JSONEncoder = JSONEncoder(), jsonDecoder: JSONDecoder = JSONDecoder()) -> T? {
+        guard let value = originData else {
+            return nil
+        }
+        if let v = value as? T {
+            return v
+        } else if let json = try? JSONElement(unknownValue: value, jsonDecoder: jsonDecoder) {
+            return try? json.as(T.self, jsonEncoder: jsonEncoder, jsonDecoder: jsonDecoder)
+        } else {
+            return nil
+        }
     }
     
     // MARK: subscript

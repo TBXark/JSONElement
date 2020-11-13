@@ -46,10 +46,6 @@ pod 'JsonMapper', :git=>'https://github.com/TBXark/JsonMapper.git', '~> 1.4.0
 
 ```swift
 
-import XCTest
-@testable import JsonMapper
-
-
 final class JsonMapperTests: XCTestCase {
     struct Human: Codable {
         let age: Int
