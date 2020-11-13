@@ -16,7 +16,7 @@ Add the dependency in your `Package.swift` file:
 let package = Package(
     name: "myproject",
     dependencies: [
-        .package(url: "https://github.com/TBXark/JsonMapper.git", .upToNextMajor(from: "1.3.0"))
+        .package(url: "https://github.com/TBXark/JsonMapper.git", .upToNextMajor(from: "1.4.0"))
         ],
     targets: [
         .target(
@@ -31,7 +31,7 @@ let package = Package(
 Add the dependency in your `Cartfile` file:
 
 ```bash
-github "TBXark/JsonMapper" ~> 1.3.0.
+github "TBXark/JsonMapper" ~> 1.4.0.
 ```
 
 ### CocoaPods
@@ -39,66 +39,64 @@ github "TBXark/JsonMapper" ~> 1.3.0.
 Add the dependency in your `Podfile` file:
 
 ```ruby
-pod 'JsonMapper', :git=>'https://github.com/TBXark/JsonMapper.git', '~> 1.3.0
+pod 'JsonMapper', :git=>'https://github.com/TBXark/JsonMapper.git', '~> 1.4.0
 ```
 
 # Example
 
 ```swift
 
+import XCTest
+@testable import JsonMapper
 
-struct Human: Codable {
-    let age: Int
-    let name: String
-    let height: Double
-    let extra: JSONElement // Any?
-}
 
-let dict = ["data": ["man": ["age": 10, "name": "Peter", "height": 180.0, "extra": [123, "123", [123], ["123": 123], true]]]]
+final class JsonMapperTests: XCTestCase {
+    struct Human: Codable {
+        let age: Int
+        let name: String
+        let height: Double
+        let extra: JSONElement // Any?
+    }
+    
+    let dict = ["data": ["man": ["age": 10, "name": "Peter", "height": 180.0, "extra": [123, "123", [123], ["123": 123], true]]]]
 
-// MARK: - JSONMapper
-print("-- JSONMapper --")
-let json = JSONMapper(raw: dict)
-// 直接获取
-if let value = json["data"]["man"]["age"].intValue {
-    print(value)
-}
-// 使用Key获取
-if let value = json["data"]["man"]["height"].value(type: Double.self) {
-    print(value)
-}
+    func testJSONMapper() throws {
 
-// 使用 dynamicMemberLookup 获取
-if let value = json.data.man.height.value(type: Double.self) {
-    print(value)
-}
+        let json = JSONMapper(raw: dict)
+        // 直接获取
+        XCTAssertEqual(json["data"]["man"]["age"].intValue, 10)
 
-// 使用Keypath获取
-if let value = json.value(keyPath: "data.man.name", type: String.self) {
-    print(value)
-}
+        // 使用Key获取
+        XCTAssertEqual(json["data"]["man"]["height"].as(Double.self), 180.0)
 
-if let manDict: Any = json["data"]["man"].value() {
-    let data = try JSONSerialization.data(withJSONObject: manDict, options: [])
-    let man = try JSONDecoder().decode(Human.self, from: data)
-    if let value = man.extra.arrayValue {
-        print(value.map({ $0.rawValue }))
-        if let str = value.first?.intValue {
-            print(str)
-        }
+        // 使用 dynamicMemberLookup 获取
+        XCTAssertEqual(json.data.man.height.as(Double.self), 180.0)
+
+        // 使用Keypath获取
+        XCTAssertEqual(json[keyPath: "data.man.name"].as(String.self), "Peter")
 
     }
-}
+    
+    func testJSONElement() throws {
 
-//
-// Output:
-//
-//-- JSONMapper --
-//10
-//180.0
-//180.0
-//Peter
-//[Optional(123), Optional("123"), Optional([Optional(123)]), Optional(["123": 123]), Optional(true)]
-//123
+        let json = try JSONElement(rawJSON: dict)
+        // 使用dynamicMemberLookup直接获取
+        XCTAssertEqual(json.data.man.age.intValue, 10)
+
+        // 使用Key获取
+        XCTAssertEqual(json["data"]["man"]["height"].decimalValue, 180.0)
+
+        // 使用Keypath获取
+        XCTAssertEqual(json[keyPath: "data.man.name"].stringValue, "Peter")
+        
+        // 将不确定类型对象解析为JSONElement
+        XCTAssertEqual(json.data.man.extra.arrayValue?.first?.intValue , 123)
+    }
+
+    static var allTests = [
+        ("testJSONMapper", testJSONMapper),
+        ("testJSONElement", testJSONElement)
+    ]
+}
 
 ```
