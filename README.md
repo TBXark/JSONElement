@@ -16,7 +16,7 @@ Add the dependency in your `Package.swift` file:
 let package = Package(
     name: "myproject",
     dependencies: [
-        .package(url: "https://github.com/TBXark/JsonMapper.git", .upToNextMajor(from: "1.2.0"))
+        .package(url: "https://github.com/TBXark/JsonMapper.git", .upToNextMajor(from: "1.3.0"))
         ],
     targets: [
         .target(
@@ -31,7 +31,7 @@ let package = Package(
 Add the dependency in your `Cartfile` file:
 
 ```bash
-github "TBXark/JsonMapper" ~> 1.2.0.
+github "TBXark/JsonMapper" ~> 1.3.0.
 ```
 
 ### CocoaPods
@@ -39,7 +39,7 @@ github "TBXark/JsonMapper" ~> 1.2.0.
 Add the dependency in your `Podfile` file:
 
 ```ruby
-pod 'JsonMapper', :git=>'https://github.com/TBXark/JsonMapper.git', '~> 7.18.0
+pod 'JsonMapper', :git=>'https://github.com/TBXark/JsonMapper.git', '~> 1.3.0
 ```
 
 # Example
