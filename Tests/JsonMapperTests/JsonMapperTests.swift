@@ -15,17 +15,19 @@ final class JsonMapperTests: XCTestCase {
     func testJSONMapper() throws {
 
         let json = JSONMapper(dict)
-        // 直接获取
-        XCTAssertEqual(json["data"]["man"]["age"].intValue, 10)
-
-        // 使用Key获取
-        XCTAssertEqual(json["data"]["man"]["height"].as(Double.self), 180.0)
 
         // 使用 dynamicMemberLookup 获取
         XCTAssertEqual(json.data.man.height.as(Double.self), 180.0)
 
+        // 使用Key获取
+        XCTAssertEqual(json["data"]["man"]["age"].intValue, 10)
+        XCTAssertEqual(json["data"]["man"]["height"].as(Double.self), 180.0)
+
         // 使用Keypath获取
         XCTAssertEqual(json[keyPath: "data.man.name"].as(String.self), "Peter")
+
+        // 将不确定类型对象解析为JSONElement
+        XCTAssertEqual(try? json[keyPath: "data.man.extra"].as(JSONElement.self)?.arrayValue?.last?.as(Bool.self), true)
 
     }
     
@@ -43,6 +45,8 @@ final class JsonMapperTests: XCTestCase {
         
         // 将不确定类型对象解析为JSONElement
         XCTAssertEqual(json.data.man.extra.arrayValue?.first?.intValue , 123)
+        XCTAssertEqual(try? json.data.man.extra.arrayValue?.last?.as(Bool.self), true)
+
     }
 
     static var allTests = [
