@@ -1,6 +1,6 @@
-# JsonMapper
+# JSONElement
 
-`JsonMapper` is a simple, fast and secure way to access Json.
+`JSONElement` is a simple, fast and secure way to access Json.
 
 Because `Any` can't be used in `Codable`, it can be replaced with `JSONElement` for properties of type `Any`.
 
@@ -16,12 +16,12 @@ Add the dependency in your `Package.swift` file:
 let package = Package(
     name: "myproject",
     dependencies: [
-        .package(url: "https://github.com/TBXark/JsonMapper.git", .upToNextMajor(from: "1.4.0"))
+        .package(url: "https://github.com/TBXark/JSONElement.git", .upToNextMajor(from: "1.4.0"))
         ],
     targets: [
         .target(
             name: "myproject",
-            dependencies: ["JsonMapper"]),
+            dependencies: ["JSONElement"]),
         ]
 )
 ```
@@ -31,7 +31,7 @@ let package = Package(
 Add the dependency in your `Cartfile` file:
 
 ```bash
-github "TBXark/JsonMapper" ~> 1.4.0.
+github "TBXark/JSONElement" ~> 1.4.0.
 ```
 
 ### CocoaPods
@@ -39,14 +39,14 @@ github "TBXark/JsonMapper" ~> 1.4.0.
 Add the dependency in your `Podfile` file:
 
 ```ruby
-pod 'JsonMapper', :git=>'https://github.com/TBXark/JsonMapper.git', '~> 1.4.0
+pod 'JSONElement'
 ```
 
 # Example
 
 ```swift
 
-final class JsonMapperTests: XCTestCase {
+final class JSONElementTests: XCTestCase {
     struct Human: Codable {
         let age: Int
         let name: String
@@ -56,24 +56,6 @@ final class JsonMapperTests: XCTestCase {
     
     let dict = ["data": ["man": ["age": 10, "name": "Peter", "height": 180.0, "extra": [123, "123", [123], ["123": 123], true]]]]
 
-    func testJSONMapper() throws {
-
-        let json = JSONMapper(dict)
-
-        // 使用 dynamicMemberLookup 获取
-        XCTAssertEqual(json.data.man.height.as(Double.self), 180.0)
-
-        // 使用Key获取
-        XCTAssertEqual(json["data"]["man"]["age"].intValue, 10)
-        XCTAssertEqual(json["data"]["man"]["height"].as(Double.self), 180.0)
-
-        // 使用Keypath获取
-        XCTAssertEqual(json[keyPath: "data.man.name"].as(String.self), "Peter")
-
-        // 将不确定类型对象解析为JSONElement
-        XCTAssertEqual(try? json[keyPath: "data.man.extra"].as(JSONElement.self)?.arrayValue?.last?.as(Bool.self), true)
-
-    }
     
     func testJSONElement() throws {
 
@@ -93,9 +75,29 @@ final class JsonMapperTests: XCTestCase {
 
     }
 
+
+    func testJSONMapper() throws {
+
+        let json = JSONMapper(dict)
+
+        // 使用 dynamicMemberLookup 获取
+        XCTAssertEqual(json.data.man.height.as(Double.self), 180.0)
+
+        // 使用Key获取
+        XCTAssertEqual(json["data"]["man"]["age"].intValue, 10)
+        XCTAssertEqual(json["data"]["man"]["height"].as(Double.self), 180.0)
+
+        // 使用Keypath获取
+        XCTAssertEqual(json[keyPath: "data.man.name"].as(String.self), "Peter")
+
+        // 将不确定类型对象解析为JSONElement
+        XCTAssertEqual(try? json[keyPath: "data.man.extra"].as(JSONElement.self)?.arrayValue?.last?.as(Bool.self), true)
+
+    }
+
     static var allTests = [
-        ("testJSONMapper", testJSONMapper),
         ("testJSONElement", testJSONElement)
+        ("testJSONMapper", testJSONMapper),
     ]
 }
 

@@ -1,8 +1,8 @@
 import XCTest
-@testable import JsonMapper
+@testable import JSONElement
 
 
-final class JsonMapperTests: XCTestCase {
+final class JSONElementTests: XCTestCase {
     struct Human: Codable {
         let age: Int
         let name: String

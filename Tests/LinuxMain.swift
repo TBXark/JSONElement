@@ -1,7 +1,7 @@
 import XCTest
 
-import JsonMapperTests
+import JSONElementTests
 
 var tests = [XCTestCaseEntry]()
-tests += JsonMapperTests.allTests()
+tests += JSONElementTests.allTests()
 XCTMain(tests)
